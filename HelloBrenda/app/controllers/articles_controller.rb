@@ -1,12 +1,13 @@
 class ArticlesController < ApplicationController
 
+  before_action :fetch_post, only: [:edit, :update, :destroy]
+
   def new
     @article = Article.new
   end
 
   def create
-    @article = Article.new params[:article].permit(:title, :content, :image_url1, :image_url2, :image_url3, :image_url4, :image_url5)
-    
+    @article = Article.new params[:article].permit(:title, :content, :image)
     if @article.save 
       redirect_to articles_path
     else
@@ -20,12 +21,10 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find params[:id]
   end
 
   def update
-    @article = Article.find params[:id]
-    @article.update params[:article].permit(:title, :content, :image_url1, :image_url2, :image_url3, :image_url4, :image_url5, :tag)
+    @article.update params[:article].permit(:title, :content, :image)
     redirect_to '/articles'
   end
 
@@ -36,9 +35,17 @@ class ArticlesController < ApplicationController
   end 
 
   def destroy
-    @article = Article.find params[:id]
     @article.destroy
     redirect_to '/articles'
   end 
 
+  private
+
+  def fetch_post
+    @article = Article.find(params[:id])
+  end
+
 end
+
+ #tags = params["tags"].split(" ").map{|tag| Tag.first_or_create(:text => tag)}
+  #Link.create(:url => url, :title => title, :tags => tags)
