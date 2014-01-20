@@ -1,0 +1,44 @@
+<% if @article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@article.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @article do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <br>
+  <%= form.label :content %>
+  <%= form.text_area :content %>
+
+  <br>
+  <%= form.label :image_url1 %>
+  <%= form.text_area :image_url1 %>
+
+  <br>
+  <%= form.label :image_url2 %>
+  <%= form.text_area :image_url2 %>
+
+  <br>
+  <%= form.label :image_url3 %>
+  <%= form.text_area :image_url3 %>
+
+  <br>
+  <%= form.label :image_url4 %>
+  <%= form.text_area :image_url4 %>
+
+  <br>
+  <%= form.label :image_url5 %>
+  <%= form.text_area :image_url5 %>
+
+  <br>
+  <%= form.submit id: 'submit_button' %>
+
+<% end %>
