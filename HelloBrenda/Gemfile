@@ -10,6 +10,8 @@ gem 'devise'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 
+gem 'rails_12factor', group: :production
+
 #bootstrap for rails
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
