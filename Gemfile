@@ -50,6 +50,7 @@ group :test, :development do
 end
 
 gem 'unicorn'
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

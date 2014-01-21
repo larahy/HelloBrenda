@@ -8,4 +8,15 @@ class Article < ActiveRecord::Base
                       secret_access_key: ENV['S3_ACCESS_KEY']
                       },
                     bucket: 'HelloBrendaPhotos'
+
+  def tag_input=(tag_input)
+    self.tags = tag_input.split(', ').map do |tag|
+      Tag.find_or_create_by(tag: tag)
+    end
+  end
+
+  def tag_input
+    tags.map {|t| t.tag}.join(', ')
+  end
+
 end

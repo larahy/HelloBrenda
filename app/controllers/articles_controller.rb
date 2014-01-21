@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new params[:article].permit(:title, :content, :image)
+    @article = Article.new params[:article].permit(:title, :content, :image, :tag_input)
     if @article.save 
       redirect_to articles_path
     else
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update params[:article].permit(:title, :content, :image)
+    @article.update params[:article].permit(:title, :content, :image, :tag_input)
     redirect_to '/articles'
   end
 

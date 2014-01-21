@@ -8,9 +8,11 @@ describe 'creating and editing articles' do
       visit '/articles/new'
       fill_in 'Title', with: '5 best donkeys'
       fill_in 'Content', with: 'donkeys can be very cool'
+      fill_in 'Tags', with: 'yeeha, bethlehem'
       click_button 'Save article'
       expect(current_path).to eq '/articles'
       expect(page).to have_content 'donkeys can be very cool'
+      expect(page).to have_content '#yeeha, #bethlehem'
     end
 
   end
