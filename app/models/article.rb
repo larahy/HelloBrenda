@@ -19,4 +19,9 @@ class Article < ActiveRecord::Base
     tags.map {|t| t.tag}.join(', ')
   end
 
+  # def self.for_tag_or_all(tag_id)
+  #   tag_id ? Tag.find_by(tag: tag).posts : all
+  # end
+
+  
 end

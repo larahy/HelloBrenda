@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jqueryui
+//= require jquery.ui.all
 //= require turbolinks
 //= require_tree .

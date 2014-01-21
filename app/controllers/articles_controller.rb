@@ -17,7 +17,11 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    if params[:tag_id]
+      @articles = Tag.find(params[:tag_id]).articles
+    else
+      @articles = Article.all
+    end
   end
 
   def edit
