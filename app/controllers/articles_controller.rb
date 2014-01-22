@@ -51,5 +51,3 @@ class ArticlesController < ApplicationController
 
 end
 
- #tags = params["tags"].split(" ").map{|tag| Tag.first_or_create(:text => tag)}
-  #Link.create(:url => url, :title => title, :tags => tags)

@@ -5,19 +5,22 @@ class ChargesController < ApplicationController
   end
 
   def create
-    @article = Article.find(params[:article_id])
+    @article = Article.find params[:article_id]
     @amount = @article.price * 100
-    customer = Stripe::Customer.create(
-    :email => 'example@stripe.com',
-    :card  => params[:stripeToken]
-  )
 
-  charge = Stripe::Charge.create(
+    customer = Stripe::Customer.create(
+    :email => 'larahy@gmail.com',
+    :card  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
     :customer    => customer.id,
     :amount      => @amount,
     :description => '@article.title',
     :currency    => 'gbp'
   )
+    flash[:notice] = "Je ne regrette rien"
+    redirect_to '/articles'
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
