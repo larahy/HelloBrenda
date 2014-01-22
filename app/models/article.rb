@@ -10,14 +10,13 @@ class Article < ActiveRecord::Base
                     bucket: 'HelloBrendaPhotos'
 
   def tag_input=(tag_input)
-    self.tags = tag_input.split(', ').map do |tag|
-      Tag.find_or_create_by(tag: tag)
-    end
+    self.tags = Tag.find_or_create_by_tag_input(tag_input)
   end
 
   def tag_input
     tags.map {|t| t.tag}.join(', ')
   end
+  
 
   # def self.for_tag_or_all(tag_id)
   #   tag_id ? Tag.find_by(tag: tag).posts : all

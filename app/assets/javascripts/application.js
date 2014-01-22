@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jqueryui
 //= require jquery.ui.all
+//= require inputosaurus
 //= require turbolinks
 //= require_tree .

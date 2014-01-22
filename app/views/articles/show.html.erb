@@ -1,2 +1,6 @@
 <%= link_to 'HELLO BRENDA', articles_path %>
 <%= render @article %>
+<%= link_to new_article_charge_path(@article) do %>
+ <h3>Buy a print for £<%= @article.price %></h3>
+<% end %>
+

@@ -1,0 +1,9 @@
+<%= form_tag article_charges_path(@article) do %>
+  <h3> Buy a print for £<%= @article.price %></h3>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:stripe_public_key] %>"
+          data-description="<%= @article.title %>"
+          data-currency="GBP"
+          data-amount="<%= @article.price * 100 %>"></script>
+<% end %>

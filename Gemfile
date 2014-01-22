@@ -6,9 +6,18 @@ gem 'rails', '4.1.0.beta1'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+
+# For email sign up
 gem 'devise'
+
+# For attaching files
 gem "paperclip", "~> 3.0"
+
+# Cloud hosting attached files eg images
 gem 'aws-sdk'
+
+# Payment processing 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'rails_12factor', group: :production
 

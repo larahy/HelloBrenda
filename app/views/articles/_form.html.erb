@@ -23,8 +23,12 @@
   <%= form.file_field :image %>
 
   <br>
+  <%= form.label :price, "Price in £" %>
+  <%= form.text_area :price %>
+
+  <br>
   <%= form.label :tag_input, 'Tags'%>
-  <%= form.text_field :tag_input %>
+  <%= form.text_field :tag_input, id: 'tag_input' %>
 
 
  <%= form.submit 'Save article' %>

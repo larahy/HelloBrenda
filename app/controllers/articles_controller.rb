@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new params[:article].permit(:title, :content, :image, :tag_input)
+    @article = Article.new params[:article].permit(:title, :content, :image, :tag_input, :price)
     if @article.save 
       redirect_to articles_path
     else
@@ -18,9 +18,9 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:tag_id]
-      @articles = Tag.find(params[:tag_id]).articles
+      @articles = Tag.find(params[:tag_id]).articles.order('created_at DESC')
     else
-      @articles = Article.all
+      @articles = Article.all.order('created_at DESC')
     end
   end
 
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update params[:article].permit(:title, :content, :image, :tag_input)
+    @article.update params[:article].permit(:title, :content, :image, :tag_input, :price)
     redirect_to '/articles'
   end
 
