@@ -20,12 +20,16 @@ class ChargesController < ApplicationController
     :amount      => @amount,
     :description => '@article.title',
     :currency    => 'gbp'
-  )
+    )
+
+    @order = Order.new(user_id: current_user.id, amount: @amount, product: @article.title)
+
     flash[:notice] = "Je ne regrette rien"
     redirect_to '/articles'
 
-rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to charges_path
-end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charges_path
+  end
+
 end
