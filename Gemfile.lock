@@ -60,6 +60,7 @@ GEM
       xpath (~> 2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    cliver (0.3.2)
     cocaine (0.5.3)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.1)
@@ -112,6 +113,11 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.17.1)
+    poltergeist (1.5.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -193,6 +199,7 @@ GEM
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket-driver (0.3.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -213,6 +220,7 @@ DEPENDENCIES
   jquery-ui-rails
   paperclip (~> 3.0)
   pg
+  poltergeist
   rails (= 4.1.0.beta1)
   rails_12factor
   rspec-rails

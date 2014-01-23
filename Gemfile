@@ -57,6 +57,7 @@ group :test, :development do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'poltergeist'
 end
 
 gem 'unicorn'

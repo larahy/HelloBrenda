@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def new
     @article = Article.find(params[:article_id])
   end
@@ -9,7 +11,7 @@ class ChargesController < ApplicationController
     @amount = @article.price * 100
 
     customer = Stripe::Customer.create(
-    :email => 'larahy@gmail.com',
+    :email => current_user.email,
     :card  => params[:stripeToken]
     )
 

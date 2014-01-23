@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require jqueryui
 //= require jquery.ui.all
+//= require bootstrap
 //= require inputosaurus
 //= require turbolinks
+//= require mustache
 //= require_tree .
 
   

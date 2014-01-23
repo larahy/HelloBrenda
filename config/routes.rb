@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   resources :articles do 
     resources :tags
     resources :charges
+    resources :comments
   end
 
   resources :tags do 

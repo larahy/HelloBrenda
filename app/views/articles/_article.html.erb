@@ -8,7 +8,39 @@
     <p class="taglist"><% article.tags.each do |tag| %>
       <%= link_to tag, tag_articles_path(tag) %>
       <%end%></p>
+    <% if article.user == current_user %>
     <%= link_to 'Edit information', edit_article_path(article) %>
     <%= link_to 'Delete article', article_path(article), method: :delete, data: { confirm: 'Really?'} %>
+    <% end %>
   </div>
+
+  <div class='comment-form'>
+    <%= link_to 'Add Comment', '#', class: 'add-comment' %>
+    <%= form_for [article, Comment.new] do |f| %>
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+   <% if article.comments.any? %>
+    <div class='post-comments'>
+
+      <%= link_to 'Show comments', '#', class: 'btn btn-success show-comments', data: { url: article_comments_path(article, format: :json) } %>
+      <div class='spinner'>
+        <img src='http://www.iab.net/extra/adquickref/spinnerLarge.gif'>
+      </div>
+
+      <script type='text/template' id='comment-template'>
+        <div class='well'>
+          <h4>{{ commenter }}</h4>
+          <p>{{ text }}</p>
+        </div>
+      </script>
+      <div class='comments_container'></div>
+
+    </div>
+  <% end %>
+
+
 </div>

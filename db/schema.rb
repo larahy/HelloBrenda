@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122113910) do
+ActiveRecord::Schema.define(version: 20140123125740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20140122113910) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "price"
+    t.integer  "user_id"
   end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "articles_tags", force: true do |t|
     t.integer  "article_id"
@@ -37,15 +40,21 @@ ActiveRecord::Schema.define(version: 20140122113910) do
 
   add_index "articles_tags", ["article_id", "tag_id"], name: "index_articles_tags_on_article_id_and_tag_id", using: :btree
 
+  create_table "comments", force: true do |t|
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "article_id"
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "tags", force: true do |t|
     t.string   "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "tags_and_articles", force: true do |t|
-    t.integer "tag_id"
-    t.integer "article_id"
   end
 
   create_table "users", force: true do |t|

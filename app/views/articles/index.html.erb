@@ -1,8 +1,10 @@
-<%= link_to 'HELLO BRENDA', articles_path %>
 <% if @articles.none? %>
 <p>No Articles Yet!</p>
 <% end %> 
+<div class="row">
 <%= render @articles %>
+</div>
+
 
 
 

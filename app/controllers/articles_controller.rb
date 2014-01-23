@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
-  before_action :fetch_post, only: [:edit, :update, :destroy]
+  before_action :fetch_user_article, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :update]
 
   def new
     @article = Article.new
@@ -8,6 +9,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new params[:article].permit(:title, :content, :image, :tag_input, :price)
+    @article.user = current_user
+
     if @article.save 
       redirect_to articles_path
     else
@@ -45,8 +48,9 @@ class ArticlesController < ApplicationController
 
   private
 
-  def fetch_post
-    @article = Article.find(params[:id])
+  def fetch_user_article
+   # @article = Article.find_by(id: params[:id], user: current_user)
+    @article = current_user.articles.find(params[:id])
   end
 
 end
