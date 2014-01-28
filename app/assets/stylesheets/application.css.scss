@@ -25,8 +25,29 @@
   font-family: georgia;
  }
 
+ nav { 
+  width: 80%;
+}
+
  .navbar-inverse {
   font-family: georgia;
  }
+
+ .navbar-form navbar-left {
+  font-size: 32px;
+ }
+
+ .navbar-nav {
+  border: solid red;
+ }
+
+
+.navbar-brand {
+  color: navy;
+}
+
+.dropdown-menu {
+  background-color: red;
+}
 
 

@@ -22,7 +22,7 @@ class ChargesController < ApplicationController
     :currency    => 'gbp'
     )
 
-    @order = Order.new(user_id: current_user.id, amount: @amount, product: @article.title)
+    @order = Order.create(user_id: current_user.id, amount: @amount, product: @article.title)
 
     flash[:notice] = "Je ne regrette rien"
     redirect_to '/articles'

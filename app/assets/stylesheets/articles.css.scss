@@ -9,8 +9,33 @@
     background: green;
   }
 }
-
+p {
+  padding: 2%;
+}
 .comments-container, .spinner {
 	display: none;
 }
 
+#hello {
+  border: solid red;
+  margin-left: 10px;
+}
+
+
+.image {
+  border: solid black;
+  z-index: 0
+}
+
+.col-md-4 .article-image  {
+  border: dashed yellow;
+  position: relative;
+}
+
+.taglist {
+  border: solid purple;
+  position: absolute;
+  top: 50%;
+  width: 93%;
+  background: rgba(255,255,255,0.8);
+}

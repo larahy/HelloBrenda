@@ -1,8 +1,11 @@
-<div class='row constrained-row post'>
+<div id="hello" class='row constrained-row post'>
   <div class='col-md-4 article-image'>
-    <%= image_tag article.image.url(:thumb), class: 'instagram-upload' %></h1>
+    <div class='image'><%= image_tag article.image.url(:thumb), class: 'instagram-upload' %></div>
+    <p class="taglist"><% article.tags.each do |tag| %>
+      <%= link_to tag, tag_articles_path(tag) %>
+      <%end%></p>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-5">
     <h1><%= link_to article.title, article %></h1>
     <p><%= truncate article.content, length:100 %></p>
     <p class="taglist"><% article.tags.each do |tag| %>
