@@ -1,28 +1,9 @@
-== README
+HELLO BRENDA -- Week 8 Challenge -- set by @alexpeattie
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+==========================
 
-Things you may want to cover:
+The challenge was to mimick an online instagram where users can post images, upvote and downvote them, and filter by tags.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Built using Rails, PostgreSQL, JavaScript, JSON and JBuilder, HTML, CSS and SASS
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
